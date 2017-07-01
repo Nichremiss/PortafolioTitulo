@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9f0ad2a5-f319-42f8-a8f9-cc78eded9d34" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Especialidad.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Especialidad.xsd" MetadataType="Schema" ID="b43a73c5-6b2c-4f23-8938-d388630bc40c" SourceId="1" SourceUrl="http://localhost:59231/Especialidad.svc?xsd=xsd1" />
+    <MetadataFile FileName="Especialidad.wsdl" MetadataType="Wsdl" ID="66936166-1134-46d3-9339-543ab49aba6e" SourceId="1" SourceUrl="http://localhost:59231/Especialidad.svc?wsdl" />
+    <MetadataFile FileName="Especialidad1.xsd" MetadataType="Schema" ID="b3f35d26-aefb-4b39-9c3b-405088e6f514" SourceId="1" SourceUrl="http://localhost:59231/Especialidad.svc?xsd=xsd2" />
+    <MetadataFile FileName="Especialidad.disco" MetadataType="Disco" ID="205069f5-f1a2-4f94-a8cf-82985aa4a05b" SourceId="1" SourceUrl="http://localhost:59231/Especialidad.svc?disco" />
+    <MetadataFile FileName="Especialidad2.xsd" MetadataType="Schema" ID="4709f8a2-adaa-4748-87c1-980ad5b6c6b0" SourceId="1" SourceUrl="http://localhost:59231/Especialidad.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

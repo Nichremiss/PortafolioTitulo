@@ -1,0 +1,54 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Medico Galenos</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/CssjQWidget")
+    @Scripts.Render("~/bundles/jQWidget")
+    @Styles.Render("~/bundles/Cssassets")
+    @Scripts.Render("~/bundles/assets")
+    @*<link rel="stylesheet" href="~/Scripts/assets_Index/css/main.css" />*@
+
+
+</head>
+<body id="logofondo" style="background:url(../../Imagenes/abstracto-azul-hd-398.jpg);">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Index/Index">
+                    <img id="imagenLogo"  src="~/Imagenes/logo.png" alt="" width="120" height="35" hr />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                @*<ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Index")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                </ul>*@
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <br /><br />
+        @RenderBody()
+    </div>
+    <!-- Footer -->
+    @*<footer id="footer" style="background: #303641">
+        <span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+    </footer>*@
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

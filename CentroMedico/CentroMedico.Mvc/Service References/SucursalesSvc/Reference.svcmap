@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6198ce21-bdad-4de9-b8ba-53f171162986" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Sucursales.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Sucursales2.xsd" MetadataType="Schema" ID="4c3a7723-250c-4d22-afbd-c20248c26bc9" SourceId="1" SourceUrl="http://localhost:59231/Sucursales.svc?xsd=xsd2" />
+    <MetadataFile FileName="Sucursales.wsdl" MetadataType="Wsdl" ID="c943cc37-5284-4c7f-9f4d-6a537c58468d" SourceId="1" SourceUrl="http://localhost:59231/Sucursales.svc?wsdl" />
+    <MetadataFile FileName="Sucursales1.xsd" MetadataType="Schema" ID="7076dad1-4e9f-4cfa-9ad9-32363b1d27bb" SourceId="1" SourceUrl="http://localhost:59231/Sucursales.svc?xsd=xsd0" />
+    <MetadataFile FileName="Sucursales.disco" MetadataType="Disco" ID="1cd8d3f0-afd7-465a-a7ba-6099f3a15694" SourceId="1" SourceUrl="http://localhost:59231/Sucursales.svc?disco" />
+    <MetadataFile FileName="Sucursales.xsd" MetadataType="Schema" ID="a15d2325-b837-47c6-a6c9-34aab10cbfa8" SourceId="1" SourceUrl="http://localhost:59231/Sucursales.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

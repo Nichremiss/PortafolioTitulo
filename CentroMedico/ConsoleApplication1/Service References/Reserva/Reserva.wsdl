@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Reserva" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59231/Reserva.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59231/Reserva.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59231/Reserva.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReserva_InsertarReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarReserva" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_InsertarReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraDatoReserva_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraDatoReserva" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraDatoReserva_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraDatoReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraListaTodasLasReservasRealizadas_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraListaTodasLasReservasRealizadas" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraListaTodasLasReservasRealizadas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraListaTodasLasReservasRealizadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_ListaTodosLosPacientesEnEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodosLosPacientesEnEspera" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_ListaTodosLosPacientesEnEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaTodosLosPacientesEnEsperaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraPacientesEsperaXdoctor_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraPacientesEsperaXdoctor" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraPacientesEsperaXdoctor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraPacientesEsperaXdoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraListaDeReservaXpaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraListaDeReservaXpaciente" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_MuestraListaDeReservaXpaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraListaDeReservaXpacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_CambiarEstadoPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_CambiarEstadoPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_CambiarEstadoPacienteEspera_InputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoPacienteEspera" />
+  </wsdl:message>
+  <wsdl:message name="IReserva_CambiarEstadoPacienteEspera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoPacienteEsperaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IReserva">
+    <wsdl:operation name="InsertarReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/InsertarReserva" message="tns:IReserva_InsertarReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/InsertarReservaResponse" message="tns:IReserva_InsertarReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraDatoReserva">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/MuestraDatoReserva" message="tns:IReserva_MuestraDatoReserva_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/MuestraDatoReservaResponse" message="tns:IReserva_MuestraDatoReserva_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraListaTodasLasReservasRealizadas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/MuestraListaTodasLasReservasRealizadas" message="tns:IReserva_MuestraListaTodasLasReservasRealizadas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/MuestraListaTodasLasReservasRealizadasResponse" message="tns:IReserva_MuestraListaTodasLasReservasRealizadas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodosLosPacientesEnEspera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/ListaTodosLosPacientesEnEspera" message="tns:IReserva_ListaTodosLosPacientesEnEspera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/ListaTodosLosPacientesEnEsperaResponse" message="tns:IReserva_ListaTodosLosPacientesEnEspera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraPacientesEsperaXdoctor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/MuestraPacientesEsperaXdoctor" message="tns:IReserva_MuestraPacientesEsperaXdoctor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/MuestraPacientesEsperaXdoctorResponse" message="tns:IReserva_MuestraPacientesEsperaXdoctor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraListaDeReservaXpaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/MuestraListaDeReservaXpaciente" message="tns:IReserva_MuestraListaDeReservaXpaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/MuestraListaDeReservaXpacienteResponse" message="tns:IReserva_MuestraListaDeReservaXpaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarEstadoPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/CambiarEstadoPaciente" message="tns:IReserva_CambiarEstadoPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/CambiarEstadoPacienteResponse" message="tns:IReserva_CambiarEstadoPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CambiarEstadoPacienteEspera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserva/CambiarEstadoPacienteEspera" message="tns:IReserva_CambiarEstadoPacienteEspera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserva/CambiarEstadoPacienteEsperaResponse" message="tns:IReserva_CambiarEstadoPacienteEspera_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IReserva" type="tns:IReserva">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarReserva">
+      <soap:operation soapAction="http://tempuri.org/IReserva/InsertarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraDatoReserva">
+      <soap:operation soapAction="http://tempuri.org/IReserva/MuestraDatoReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraListaTodasLasReservasRealizadas">
+      <soap:operation soapAction="http://tempuri.org/IReserva/MuestraListaTodasLasReservasRealizadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaTodosLosPacientesEnEspera">
+      <soap:operation soapAction="http://tempuri.org/IReserva/ListaTodosLosPacientesEnEspera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraPacientesEsperaXdoctor">
+      <soap:operation soapAction="http://tempuri.org/IReserva/MuestraPacientesEsperaXdoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraListaDeReservaXpaciente">
+      <soap:operation soapAction="http://tempuri.org/IReserva/MuestraListaDeReservaXpaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarEstadoPaciente">
+      <soap:operation soapAction="http://tempuri.org/IReserva/CambiarEstadoPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CambiarEstadoPacienteEspera">
+      <soap:operation soapAction="http://tempuri.org/IReserva/CambiarEstadoPacienteEspera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Reserva">
+    <wsdl:port name="BasicHttpBinding_IReserva" binding="tns:BasicHttpBinding_IReserva">
+      <soap:address location="http://localhost:59231/Reserva.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5ca80246-186d-4187-a622-f593fe179971" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Cajero.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Cajero.wsdl" MetadataType="Wsdl" ID="ff11f708-ed2f-431e-9ce8-c77c865fe5f5" SourceId="1" SourceUrl="http://localhost:59231/Cajero.svc?wsdl" />
+    <MetadataFile FileName="Cajero.xsd" MetadataType="Schema" ID="11133a69-db29-4763-81d5-bcba6a9b9210" SourceId="1" SourceUrl="http://localhost:59231/Cajero.svc?xsd=xsd0" />
+    <MetadataFile FileName="Cajero1.xsd" MetadataType="Schema" ID="b90e0b26-3ebe-43fb-a032-0025fb83b84f" SourceId="1" SourceUrl="http://localhost:59231/Cajero.svc?xsd=xsd1" />
+    <MetadataFile FileName="Cajero.disco" MetadataType="Disco" ID="7d11e005-ef2a-4113-85eb-8fb9d6ba5816" SourceId="1" SourceUrl="http://localhost:59231/Cajero.svc?disco" />
+    <MetadataFile FileName="Cajero2.xsd" MetadataType="Schema" ID="aa2c8ec0-19bb-46fc-8134-621d1ae9f1d3" SourceId="1" SourceUrl="http://localhost:59231/Cajero.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

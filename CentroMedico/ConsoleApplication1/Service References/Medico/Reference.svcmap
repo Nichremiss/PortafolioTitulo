@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="14ccc608-832a-4ba9-8885-702804ef5466" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Medico.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Medico.wsdl" MetadataType="Wsdl" ID="a9e2548d-0c99-404b-933e-dad35faec8a4" SourceId="1" SourceUrl="http://localhost:59231/Medico.svc?wsdl" />
+    <MetadataFile FileName="Medico.xsd" MetadataType="Schema" ID="f559a51e-1fc7-4c3f-a4ae-9793c1035619" SourceId="1" SourceUrl="http://localhost:59231/Medico.svc?xsd=xsd0" />
+    <MetadataFile FileName="Medico1.xsd" MetadataType="Schema" ID="274c6ea3-e91f-4308-86cd-86bd16b5f129" SourceId="1" SourceUrl="http://localhost:59231/Medico.svc?xsd=xsd2" />
+    <MetadataFile FileName="Medico.disco" MetadataType="Disco" ID="4e762db3-17cf-4f01-b05e-ae92755ea15a" SourceId="1" SourceUrl="http://localhost:59231/Medico.svc?disco" />
+    <MetadataFile FileName="Medico2.xsd" MetadataType="Schema" ID="331c2bfd-8922-436d-9e53-ed72310966b8" SourceId="1" SourceUrl="http://localhost:59231/Medico.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

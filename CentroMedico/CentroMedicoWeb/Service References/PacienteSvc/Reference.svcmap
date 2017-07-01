@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b2e807f-2a0f-4796-b8cd-b1c119231ec7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Paciente.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Paciente.wsdl" MetadataType="Wsdl" ID="c4f42b84-5077-45b1-b0ab-f5defe6817c6" SourceId="1" SourceUrl="http://localhost:59231/Paciente.svc?wsdl" />
+    <MetadataFile FileName="Paciente.xsd" MetadataType="Schema" ID="b69e1995-c557-46bc-a822-0d6d4131c60d" SourceId="1" SourceUrl="http://localhost:59231/Paciente.svc?xsd=xsd0" />
+    <MetadataFile FileName="Paciente.disco" MetadataType="Disco" ID="6709c2ba-5c92-46d9-8abe-978502f778fc" SourceId="1" SourceUrl="http://localhost:59231/Paciente.svc?disco" />
+    <MetadataFile FileName="Paciente1.xsd" MetadataType="Schema" ID="5bff5234-ae7f-4e61-a2cc-1cc5a1ba9ec9" SourceId="1" SourceUrl="http://localhost:59231/Paciente.svc?xsd=xsd2" />
+    <MetadataFile FileName="Paciente2.xsd" MetadataType="Schema" ID="000ed48e-8ac5-408b-8c0f-3442f66c547b" SourceId="1" SourceUrl="http://localhost:59231/Paciente.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

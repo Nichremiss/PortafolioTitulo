@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "MostrarReservas";
+}
+
+
+@if (Session.Count> 0 && int.Parse(Session["TipoUsuario"].ToString()) == 1)
+    {
+
+    <br />
+<div>
+    <div class="panel panel-info" data-collapsed="1" style="background-color: gainsboro">
+        <!-- panel head -->
+        <div class="panel-heading">
+            <div class="panel-title"><h2 style="text-align:center;color:#428bca">Lista Reservas</h2></div>
+            <div class="panel-options">            
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <!-- panel body -->
+        <div class="panel-body">
+                @Html.Raw(ViewBag.ListaHorasReservadas)
+        </div>
+    </div>
+</div>
+<div>
+    <br />
+    <div class="panel panel-info" data-collapsed="0" style="background-color: gainsboro">
+        <!-- panel head -->
+        <div class="panel-heading">
+            <div class="panel-title"><h2 style="text-align:center;color:#428bca">Lista Pacientes en espera</h2></div>
+
+            <div class="panel-options">
+                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+            </div>
+        </div>
+        <!-- panel body -->
+        <div class="panel-body">
+            @Html.Raw(ViewBag.ListaPacientesEnEspera)
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function ($) {
+        cargartabla();
+    });
+
+    function cargartabla() {
+
+        var table = $("#MuestraListaTodasLasReservasRealizadas").dataTable({
+            "aaSorting": [[0, "desc"]]
+        });
+
+        var table1 = $("#MuestraListaPacienteEsperaTodos").dataTable({
+            "aaSorting": [[0, "desc"]]
+
+        });
+    }
+    function ListarReservas(NUM_ID)
+    {
+        var param = {
+            "reserva_id": NUM_ID
+        }
+
+        jQuery.ajax({
+            url: 'CambiarEstadoEspera',
+            type: "POST",
+            data: JSON.stringify(param),
+            datatype: "JSON",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+            },
+            success: function (returndata) {
+                console.log(returndata)
+                if (returndata) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 1000);
+                }
+
+            }
+        });
+      
+    }
+
+</script>
+    }
+else
+{
+
+    Response.Redirect("~/Index/Index");
+
+
+}
+
+
+
+
+

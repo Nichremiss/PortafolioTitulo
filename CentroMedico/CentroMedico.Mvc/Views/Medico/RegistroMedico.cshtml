@@ -1,0 +1,163 @@
+﻿@section scripts {
+    <script src="~/Scripts/Validar-eMail.js"></script>
+    <script src="~/Scripts/Js/Medico/Medico.js"></script>
+    <script src="~/Scripts/ValidarRut.js"></script>
+
+    <!--Mensajes ok y no ok-->
+    <script src="~/Scripts/assets/js/toastr.js"></script>
+    <script src="~/Scripts/assets/js/neon-chat.js"></script>
+@if (Session.Count > 0 && int.Parse(Session["TipoUsuario"].ToString()) == 1)
+{
+    <!--Valida rut-->
+    <script>
+            $(document).ready(function () {
+
+                //var datos = @Html.Raw(ViewBag.Lista);
+
+                $("#txtRutMedico").rut();
+
+
+            });
+    </script>
+
+    <!--funcion de combo-->
+<script>
+        $(document).ready(function () {
+            $("#comboEspecialidad").jqxComboBox({});
+        });
+</script>
+    <!--Combo de Sucursal-->
+<script>
+        $(document).ready(function () {
+            $("#comboSucursal").jqxComboBox({});
+        });
+    </script>
+    <div class="row">
+        <div class="col-md-3" style="align-content:center"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary" data-collapsed="0">
+                <div class="panel-body"  style="background:url(https://k60.kn3.net/taringa/4/0/E/A/7/5/Obed1990/70D.jpg);border-radius: 8px/7px; " >
+                    <form role="form" class="form-horizontal form-groups-bordered">
+                        <div class="panel-body">
+                            <h2 style="text-align:center;color:white">Registro de Medico</h2>
+                            <!--Mensaje General para mostrar errores-->
+                            <div class="row col-md-12">
+                                <div class="alert alert-danger" id="txtTextoOculto" style="height: 60px">
+                                </div>
+                            </div>
+                            <!--Mensaje de ok-->
+                            <div class="row col-md-12">
+                                <div class="alert alert-success" id="lblMensaje" style="height: 60px">
+                                </div>
+                            </div>
+                            <!--rut-->
+                            <div class="col-md-6">
+                                <label for="field-1" class="control-label">Rut</label>
+                                <input type="text" onfocusout="return ValidarDuplicidadMedico()" class="form-control  css" id="txtRutMedico" placeholder="Con puntos y con guión">
+                            </div>
+                            <!--nombre-->
+                            <div class="col-md-6">
+                                <label for="field-1" class="control-label">Nombre</label>
+                                <input type="text" class="form-control css" id="txtNombreM" placeholder="Máximo 15 caracteres" onkeypress="return soloLetras(event)">
+                            </div>
+                            <div class="clear"></div>
+                            <br />
+                            <!--apellido paterno-->
+                             <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Apellido Paterno</label>
+                                    <input type="text" class="form-control css" id="txtPaterno" placeholder="Máximo 15 caracteres" onkeypress="return soloLetras(event)">
+                                </div>                         
+                            <!--apellido materno-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Apellido Materno</label>
+                                    <input type="text" class="form-control css" id="txtMaterno" placeholder="Máximo 15 caracteres" onkeypress="return soloLetras(event)">
+                                </div>
+                            <div class="clear"></div>
+                            <br />
+                            <!--Email--> 
+                                <div class="col-sm-6">
+                                    <label required for="field-1" class="control-label">Email</label>
+                                    <input type="text" class="form-control css" id="txtEmailMedico" placeholder="Máximo 20 caracteres" onkeypress="return ValidarEmail(vEmail)">
+                                </div>
+                            <div class="clear"></div>
+                            <br />
+                            <!--contraseña1--> 
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="txtClaveMedico" placeholder="Debe tener entre 4 y 9 caracteres">
+                                </div>
+                           
+                            <!--Contraseña2-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Reingrese Contraseña</label>
+                                    <input type="password" class="form-control" id="txtClaveMedico2" placeholder="Contraseñas deben coincidir">
+                                </div>
+                            <div class="clear"></div>
+                            <br />
+                            <!--Especialidad-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Especialidad</label>
+                                    <select name="comboEspecialidad" id="comboEspecialidad" style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                        <option value="">Seleccione</option>
+                                        @foreach (var item in ViewBag.listaEspecialidad)
+                                        {
+                                            <option value="@item.especialidad_id">@item.especialidad_desc</option>
+                                        }
+                                    </select>
+                                </div>
+                            <!--Sucursal-->       
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label" >Sucursal </label>
+                                    <select name="comboSucursal" id="comboSucursal" style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                        <option value="">Seleccione</option>
+                                        @foreach (var item in ViewBag.listaSucursales)
+                                        {
+                                            <option value="@item.sucursal_id">@item.sucursal_nombre</option>
+                                        }
+                                    </select>
+                                </div>                        
+                            <div class="clear"></div>
+                          
+                          <br /><br />
+                            <!--Boton de guardar-->
+                            <div class="col-md-11">
+                                <div class="row" style="text-align:center">
+                                    <button type="button" id="btnEnviar" class="btn btn-success" onclick="RegistraMedico()">Guardar <i class="entypo-floppy"></i></button>
+                                </div>
+                            </div>
+                            <br /><br />
+                            <!--Link para ir al login-->
+                                <div style="text-align:left">
+                                    <a href="~/Login/Login"><h5 style="color: white;">Volver al Login</h5></a>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+
+    Response.Redirect("~/Index/Index");
+
+
+}
+
+
+
+}           
+                          
+                          
+                         
+                           
+                 
+                      
+                    
+     
+
+
+
+

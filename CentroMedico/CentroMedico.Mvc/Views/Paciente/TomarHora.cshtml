@@ -1,0 +1,121 @@
+﻿@section scripts {
+    <script src="~/Scripts/Js/Paciente/PacienteTomaHora.js"></script>
+
+        <!--Combo de Especialidad-->
+        <script>
+                $(document).ready(function () {
+                    $("#comboPrevision").jqxComboBox({});
+                });
+       </script>
+}
+
+@if (Session.Count > 0 && int.Parse(Session["TipoUsuario"].ToString()) == 1)
+{
+    <h2 style="text-align:center">Registro de Horas Médicas</h2>
+    <!--Inicio de Formulario-->
+    <div class="row">
+        <div class="col-md-3" style="align-content:center"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary" data-collapsed="0">
+                <div class="panel-body">
+                    <form role="form" class="form-horizontal form-groups-bordered">
+                        <div class="panel-body">
+                            <!--Especialidad-->
+                            @*<div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                    <div class="col-sm-5">
+                                        <select id="comboEspecialidad">
+                                            <option value="0">Seleccione</option>
+                                            @foreach (var item in ViewBag.listaPrevision)
+                                            {
+                                                <option value="@item.prevision_id">@item.prevision_desc</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                            <!--Prevision-->
+                            <div class="form-group">
+                                <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                <div class="col-sm-5">
+                                    <select id="comboPrevision">
+                                        <option value="0">Seleccione</option>
+                                        @foreach (var item in ViewBag.listaPrevision)
+                                        {
+                                            <option value="@item.prevision_id">@item.prevision_desc</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <!--Medico-->
+                            @*<div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                    <div class="col-sm-5">
+                                        <select id="comboEspecialidad">
+                                            <option value="0">Seleccione</option>
+                                            @foreach (var item in ViewBag.listaPrevision)
+                                            {
+                                                <option value="@item.prevision_id">@item.prevision_desc</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                            <!--Sucursal-->
+                            @*<div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                    <div class="col-sm-5">
+                                        <select id="comboEspecialidad">
+                                            <option value="0">Seleccione</option>
+                                            @foreach (var item in ViewBag.listaPrevision)
+                                            {
+                                                <option value="@item.prevision_id">@item.prevision_desc</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                            <!--Fecha-->
+                            @*<div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                    <div class="col-sm-5">
+                                        <select id="comboEspecialidad">
+                                            <option value="0">Seleccione</option>
+                                            @foreach (var item in ViewBag.listaPrevision)
+                                            {
+                                                <option value="@item.prevision_id">@item.prevision_desc</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                            <!--Hora-->
+                            @*<div class="form-group">
+                                    <label for="field-1" class="col-sm-3 control-label">Prevision</label>
+                                    <div class="col-sm-5">
+                                        <select id="comboEspecialidad">
+                                            <option value="0">Seleccione</option>
+                                            @foreach (var item in ViewBag.listaPrevision)
+                                            {
+                                                <option value="@item.prevision_id">@item.prevision_desc</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>*@
+                            <!--Boton de guardar-->
+                            <div class="col-md-11">
+                                <div class="row" style="text-align:center">
+                                    <button type="button" id="btnEnviar" class="btn btn-success" onclick="RegistraMedico()">Guardar <i class="entypo-floppy"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+
+    Response.Redirect("~/Index/Index");
+
+
+}

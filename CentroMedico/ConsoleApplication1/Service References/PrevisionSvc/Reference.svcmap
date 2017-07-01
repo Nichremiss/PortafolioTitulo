@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="13fc0fef-6055-4c8e-89b1-0848af9eec2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Prevision.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Prevision.xsd" MetadataType="Schema" ID="c3a01a7a-95f5-489a-8d40-8ecaa58f7408" SourceId="1" SourceUrl="http://localhost:59231/Prevision.svc?xsd=xsd1" />
+    <MetadataFile FileName="Prevision1.xsd" MetadataType="Schema" ID="47a81c80-4a62-458b-8599-a404c7236327" SourceId="1" SourceUrl="http://localhost:59231/Prevision.svc?xsd=xsd0" />
+    <MetadataFile FileName="Prevision.disco" MetadataType="Disco" ID="93902611-e4bc-48cd-9d82-6a0886c9b0b8" SourceId="1" SourceUrl="http://localhost:59231/Prevision.svc?disco" />
+    <MetadataFile FileName="Prevision.wsdl" MetadataType="Wsdl" ID="21fdb677-9fd0-4fe7-a94e-c5f86b9caf56" SourceId="1" SourceUrl="http://localhost:59231/Prevision.svc?wsdl" />
+    <MetadataFile FileName="Prevision2.xsd" MetadataType="Schema" ID="9d0af86e-36f3-4041-b0e8-b1550e217a5d" SourceId="1" SourceUrl="http://localhost:59231/Prevision.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

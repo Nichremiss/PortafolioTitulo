@@ -1,0 +1,524 @@
+﻿<script src="~/Scripts/Js/Secretaria/Reserva.js"></script>
+@{
+    ViewBag.Title = "ReservaHoras";
+}
+
+@if (Session.Count > 0)
+    {
+        if (int.Parse(Session["TipoUsuario"].ToString()) == 2)
+        {
+        <br /><br />
+<h2 style="text-align:center;color: #fff">Reserva de Horas</h2>
+<br />
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Foundation 5 - Accordion animate</title>
+
+            <style>
+                body {
+                    background-color: #3c3c3a;
+                }
+
+                #accordianContainer {
+                    padding-bottom: 4em;
+                }
+
+                    #accordianContainer h3 {
+                        text-transform: uppercase;
+                        font-weight: bold;
+                    }
+
+                        #accordianContainer h3:not(:first-child) {
+                            margin-top: 3em;
+                        }
+
+                        #accordianContainer h3.farming {
+                            color: #ef4631;
+                        }
+
+                        #accordianContainer h3.processing {
+                            color: #f88d00;
+                        }
+
+                        #accordianContainer h3.distribution {
+                            color: #feb422;
+                        }
+
+                    #accordianContainer .accordion .accordion-navigation {
+                        position: relative;
+                    }
+
+                        #accordianContainer .accordion .accordion-navigation a {
+                            color: #fff;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            border-bottom: white solid 1px;
+                            border-bottom: rgba(255, 255, 255, 0.35) solid 1px;
+                        }
+
+                        #accordianContainer .accordion .accordion-navigation .content {
+                            background-color: inherit;
+                            color: #fff;
+                        }
+
+                        #accordianContainer .accordion .accordion-navigation:after {
+                            color: #fff;
+                            position: absolute;
+                            font-family: FontAwesome;
+                            top: 15px;
+                            right: 15px;
+                            content: "\f105";
+                        }
+
+                        #accordianContainer .accordion .accordion-navigation.active:after {
+                            content: "\f107";
+                        }
+
+
+
+                .accordion {
+                    .accordion-navigation;
+
+                {
+                    position: relative;
+                    a;
+
+                {
+                    background-color: inherit;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    // border-bottom: #fff solid 1px;
+                    border-bottom: rgb(255,255,255) solid 1px;
+                    border-bottom: rgba(255,255,255,0.35) solid 1px;
+                }
+
+                .content {
+                    background-color: inherit;
+                    color: #fff;
+                }
+
+                &:after {
+                    color: #fff;
+                    position: absolute;
+                    font-family: FontAwesome;
+                    top: 15px;
+                    right: 15px;
+                    content: "\f105";
+                }
+
+                &.active:after {
+                    content: "\f107";
+                }
+
+                }
+                }
+                }
+            </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+            <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.css'>
+            <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+
+        </head>
+        <body>
+            <div id="accordianContainer" style="background-color: inherit">
+                <div class="row">
+                    <div class="small-12 columns"> 
+                        <dl class="accordion" data-accordion style="background-color: inherit">
+                            <dd id="acordion1"class="accordion-navigation" style="background-color: inherit">
+                                <a style="background-color: inherit" href="#panel1a">Busqueda</a>
+                                <div id="panel1a" class="content">
+                                    <!--Mensajes Alerta-->
+                                    <div class="row col-md-12">
+                                        <div class="alert alert-danger" id="txtTextoOculto" style="height: 60px">
+                                        </div>
+                                    </div>
+                                    <br /><br />
+                                    <div class="form-group">
+                                        <label for="field-1" class="col-sm-3 control-label" style="color: #fff">Especialidad</label>
+                                        <div class="col-sm-3">
+                                            <select id="comboEspecialidad" style="display: block; width: 100%; margin: inherit; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                                <option value="">Seleccione</option>
+                                                @foreach (var item in ViewBag.listaEspecialidad)
+                                                {
+                                                    <option value="@item.especialidad_id">@item.especialidad_desc</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <!--Boton de ver disponibilidad-->
+                                        <div class="form-group">
+                                            <p class="text-center">
+                                                <a href="#panel2a" type="button" class="btn btn-info" onclick="MuestraHorasGeneral()">Buscar</a>
+                                               
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dd>
+                            <dd id="acordion2" class="accordion-navigation" style="background-color: inherit">
+                                <a style="background-color: inherit" href="#panel2a">Seleccione Médico y día</a>
+                                <div id="panel2a" class="content">                                 
+                                    <div id="contenedorTablaHorasGeneral"> </div>                                  
+                                </div>
+                            </dd>
+                            <dd id="acordion3" class="accordion-navigation" style="background-color: inherit">
+                                <a style="background-color: inherit" href="#panel3a">Seleccione Hora</a>
+                                <div id="panel3a" class="content">                                
+                                    <div id="contenedorTablaHoras"></div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            @*<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>*@
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js'></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.accordion.js'></script>
+        </body>
+    </html>
+    <!--Modal Reserva-->
+        <div class="modal fade custom-width" id="Modal_Reservar">
+            <div class="modal-dialog" style="width: 100%;margin-left:-20%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Confirma que los datos de tu reserva son correctos</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <label for="field-1" class="col-sm-3 control-label" style="color: black">Datos de la Cita</label>
+                            </div>
+                            <div class="clear"></div>
+                            <br />
+
+                            <!--Id de agenda Detalle oculto-->
+                            <input type="text" class="" id="txtGs">
+                            <!--id de agenda detalle-->
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Profesional </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtMedico" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+
+                            <div class="clear"></div>
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Especialidad</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtEspecialidad" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Fecha</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtFecha" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Hora</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtHora" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Centro Médico  </label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtSucursal" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+                            <hr style="color: black" />
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label" style="color: black">Datos Paciente</label>
+                            </div>
+                            <div class="clear"></div>
+                            <br />
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Nombre</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtNombrePaciente" class="col-sm-12 control-label">:Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Rut</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtRut" class="col-sm-12 control-label">:Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Previsión</label>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="field-1" id="txtPrevision" class="col-sm-12 control-label">:Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <button type="button"  id="btnEnviar" class="btn btn-info" onclick="RegistraReserva()">Confirmar Hora</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <!--Modal Reserva-->
+
+        <script>
+
+            document
+            $( document ).ready(function() {
+                console.log( "ready!" );
+                jQuery("#imagenlogo").css( "margin", "2%");
+            });
+
+           
+function MuestraHorasGeneral() {
+    var param = {
+        "c_esp": jQuery("#comboEspecialidad").val(),
+    };
+    if (jQuery('#comboEspecialidad').val().trim() === '') {
+        jQuery("#txtTextoOculto").show();
+        jQuery("#txtTextoOculto").html("Debe elegir una Especialidad")
+       
+        return;
+    }
+    jQuery("#txtTextoOculto").hide();
+
+    jQuery.ajax({
+        url: 'MuestraHorasReservaGeneral',
+        type: "POST",
+        data: JSON.stringify(param),
+        datatype: "JSON",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            jQuery('#contenedorTablaHorasGeneral').slideUp();
+        },
+        success: function (returndata) {
+            console.log(returndata)
+            jQuery('#contenedorTablaHorasGeneral').html(returndata.tabla);
+            jQuery("#TablaHorasReservaGeneral").dataTable({
+                "aaSorting": [[3, "asc"]]
+            });
+            jQuery("#panel1a").remove('active');
+            jQuery("#acordion1").remove('active');
+            jQuery("#panel1a").css("display", "none");
+
+            jQuery("#panel2a").addClass('active');
+            jQuery("#acordion2").addClass('active');
+            jQuery("#panel2a").css("display", "block");
+            jQuery('#contenedorTablaHorasGeneral').slideDown();
+        }
+    });
+
+   
+}
+
+function ReservaGeneral(med) {
+    var param = {
+        "cadena": med
+        //"fecha": jQuery("#DateFecha").val(fecha),
+    };
+    jQuery.ajax({
+        url: 'MuestraHorasReservaDiaria',
+        type: "POST",
+        data: JSON.stringify(param),
+        datatype: "JSON",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            jQuery('#contenedorTablaHoras').slideUp();
+        },
+        success: function (returndata) {
+
+            jQuery('#contenedorTablaHoras').html(returndata.tabla);
+            jQuery("#TablaHorasReserva").dataTable({
+                "aaSorting": [[3, "asc"]]
+            });
+            jQuery("#panel2a").remove('active');
+            jQuery("#acordion2").remove('active');
+            jQuery("#panel2a").css("display", "none");
+
+            jQuery("#panel3a").addClass('active');
+            jQuery("#acordion3").addClass('active');
+            jQuery("#panel3a").css("display", "block");
+            jQuery('#contenedorTablaHorasGeneral').slideDown();
+            jQuery('#contenedorTablaHoras').slideDown();
+
+        }
+    });
+}
+function prueba(num_agenda) {
+    jQuery("#txtGs").hide();
+    jQuery("#txtGs").val(num_agenda);
+    param = {
+        "num_Agenda_detalle_id":jQuery("#txtGs").val(),
+};
+    jQuery("#txtTextoOculto").hide();
+    jQuery("#panel3a").remove('active');
+    jQuery("#acordion3").remove('active');
+    jQuery("#panel3a").css("display", "none");
+
+    jQuery.ajax({
+        url: 'MostrarConfirmacionReserva',
+        type: "POST",
+        data: JSON.stringify(param),
+        datatype: "JSON",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+        },
+
+
+        success: function (returndata) {
+            console.log(returndata);
+            if (returndata) {
+                jQuery("#txtNombrePaciente").html(returndata.nombre);
+                jQuery("#txtRut").html(returndata.rut);
+                jQuery("#txtPrevision").html(returndata.prevision);
+                jQuery("#txtEspecialidad").html(returndata.reserva.reserva_especialidad);
+                jQuery("#txtFecha").html(returndata.reserva.reserva_fecha);
+                jQuery("#txtHora").html(returndata.reserva.reserva_hora);
+                jQuery("#txtMedico").html(returndata.reserva.reserva_medico);
+                jQuery("#txtSucursal").html(returndata.reserva.reserva_sucursal);
+               
+
+
+            } else {
+
+
+            }
+            jQuery("#Modal_Reservar").modal("show");
+        }
+
+        //Limpia Modal
+        //jQuery("#txtNomCliente").val("");
+        //jQuery("#txtComentarios").val("");
+        //jQuery("#txtCorreoCliente").val("");
+        //jQuery("#fileImagen").val("");
+        //jQuery("#TablaImagenesCargadas").html("");
+        //jQuery('.select2').select2('val', '');
+    });
+
+}
+
+function RegistraReserva() {
+
+    var param = {
+        "especialidad": jQuery("#txtEspecialidad").html(),
+        "prevision": jQuery("#txtPrevision").html(),
+        "medico": jQuery("#txtMedico").html(),
+        "sucursal": jQuery("#txtSucursal").html(),
+        "fecha": jQuery("#txtFecha").html(),
+        "hora": jQuery("#txtHora").html(),
+        "pacienteRut": jQuery("#txtRut").html(),
+        "pacienteNombre": jQuery("#txtNombrePaciente").html(),
+        "detalle_agenda": jQuery("#txtGs").val(),
+    };
+    console.log(param)
+    var opts = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    jQuery.ajax({
+        type: "POST",
+        url: './InsertarReserva',
+        data: JSON.stringify(param),
+        datatype: "JSON",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            jQuery('#btnEnviar').attr("disabled", true)
+        },
+        success:
+        function (returndata) {
+
+            if (returndata) {
+                window.location.replace("./ConfirmacionHora");
+                //toastr.error('Reserva Ok', 'Login Paciente', opts);
+                return;
+
+            }
+            else {
+                toastr.error('No es posible confirmar la reserva', 'Login Paciente', opts);
+                return;
+            }
+
+        },
+        complete: function () {
+            jQuery('#btnEnviar').attr("disabled", false)
+        }
+    });
+}
+document
+$(document).ready(function () {
+   
+    jQuery("#txtTextoOculto").hide();
+   
+});
+        </script>
+
+    <script>
+//reflow after page load
+$(document).foundation('accordion', 'reflow');
+
+//animate open/close
+$(".accordion dd").on("click", "a:eq(0)", function (event) {
+    var dd_parent = $(this).parent();
+
+    if(dd_parent.hasClass('active')) {
+        $(".accordion dd div.content:visible").slideToggle("normal");
+    } else {
+      $(".accordion dd div.content:visible").slideToggle("normal");
+      $(this).parent().find(".content").slideToggle("normal");
+    }
+  //return false;
+});
+    </script>
+    }
+    else
+    {
+
+        Response.Redirect("~/Login/Login");
+
+    }
+
+
+}
+else
+{
+    Response.Redirect("~/Login/Login");
+}
+
+
+
+

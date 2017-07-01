@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "ModificarHoras";
+}
+
+@if (Session.Count > 0 && int.Parse(Session["TipoUsuario"].ToString()) ==2 )
+{<div style="background-color: gainsboro" class="panel">
+    <h2 style="text-align:center;color:#428bca">Anular Reserva</h2>
+    <div id="contenedorTablaReserva"> </div>
+</div>
+
+<script>
+    jQuery(document).ready(function ($) {
+        jQuery.ajax({
+            url: 'ListaPacienteReservas',
+            type: "POST",
+            datatype: "JSON",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+                jQuery('#contenedorTablaReserva').slideUp();
+            },
+            success: function (returndata) {
+                console.log(returndata)
+                jQuery('#contenedorTablaReserva').html(returndata.tabla);
+                jQuery("#Tabla_ListaHorasReservadas").dataTable({
+                    "aaSorting": [[3, "asc"]]
+                });
+                jQuery('#contenedorTablaReserva').slideDown();
+
+            }
+        })
+    });
+        function AnularReserva(num_id) {
+            var param = { "id_agenda": num_id }
+            jQuery.ajax({
+                url: 'anularHora',
+                type: "POST",
+                data: JSON.stringify(param),
+                datatype: "JSON",
+                contentType: "application/json; charset=utf-8",
+
+                beforeSend: function () {
+                    jQuery('#contenedorDisponibilidadDiaria').slideUp();
+                },
+
+                success: function (returndata) {
+                    if (returndata) {
+
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+                        jQuery("#lblMensaje2").text("Su Hora fue anulada exitosamente");
+
+
+                    }
+                }
+            });
+        }
+
+
+
+   
+</script>
+
+}
+else
+{
+
+    Response.Redirect("~/Index/Index");
+
+
+}
+

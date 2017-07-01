@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AgendaDiariasvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAgendaDiariasvc_InsertarAgendaDiaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAgendaDiaria" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_InsertarAgendaDiaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAgendaDiariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_EditarAgendaDiaria_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAgendaDiaria" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_EditarAgendaDiaria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditarAgendaDiariaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_ObtenerCalendario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCalendario" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_ObtenerCalendario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerCalendarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasxdia_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasxdia" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasxdia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasxdiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasDisponiblesGeneral_InputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasDisponiblesGeneral" />
+  </wsdl:message>
+  <wsdl:message name="IAgendaDiariasvc_MuestraHorasDisponiblesGeneral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MuestraHorasDisponiblesGeneralResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAgendaDiariasvc">
+    <wsdl:operation name="InsertarAgendaDiaria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/InsertarAgendaDiaria" message="tns:IAgendaDiariasvc_InsertarAgendaDiaria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/InsertarAgendaDiariaResponse" message="tns:IAgendaDiariasvc_InsertarAgendaDiaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditarAgendaDiaria">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/EditarAgendaDiaria" message="tns:IAgendaDiariasvc_EditarAgendaDiaria_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/EditarAgendaDiariaResponse" message="tns:IAgendaDiariasvc_EditarAgendaDiaria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCalendario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/ObtenerCalendario" message="tns:IAgendaDiariasvc_ObtenerCalendario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/ObtenerCalendarioResponse" message="tns:IAgendaDiariasvc_ObtenerCalendario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponibles" message="tns:IAgendaDiariasvc_MuestraHorasDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponiblesResponse" message="tns:IAgendaDiariasvc_MuestraHorasDisponibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasxdia">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasxdia" message="tns:IAgendaDiariasvc_MuestraHorasxdia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasxdiaResponse" message="tns:IAgendaDiariasvc_MuestraHorasxdia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasDisponiblesGeneral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponiblesGeneral" message="tns:IAgendaDiariasvc_MuestraHorasDisponiblesGeneral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponiblesGeneralResponse" message="tns:IAgendaDiariasvc_MuestraHorasDisponiblesGeneral_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAgendaDiariasvc" type="tns:IAgendaDiariasvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertarAgendaDiaria">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/InsertarAgendaDiaria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditarAgendaDiaria">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/EditarAgendaDiaria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCalendario">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/ObtenerCalendario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasDisponibles">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasxdia">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/MuestraHorasxdia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MuestraHorasDisponiblesGeneral">
+      <soap:operation soapAction="http://tempuri.org/IAgendaDiariasvc/MuestraHorasDisponiblesGeneral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgendaDiariasvc">
+    <wsdl:port name="BasicHttpBinding_IAgendaDiariasvc" binding="tns:BasicHttpBinding_IAgendaDiariasvc">
+      <soap:address location="http://localhost:59231/AgendaDiariasvc.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

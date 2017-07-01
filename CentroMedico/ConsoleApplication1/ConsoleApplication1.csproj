@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4648FDB5-AFE3-487A-852A-76432E775F4F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleApplication1</RootNamespace>
+    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AgendaDiaria\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Especialidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Medico\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PacienteSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PrevisionSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Reserva\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SecretariaSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SucursalSvc\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\AgendaDiaria\AgendaDiariasvc.wsdl" />
+    <None Include="Service References\AgendaDiaria\AgendaDiariasvc.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgendaDiaria\AgendaDiariasvc1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AgendaDiaria\AgendaDiariasvc2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Especialidad\Especialidad.wsdl" />
+    <None Include="Service References\Especialidad\Especialidad.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Especialidad\Especialidad1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Especialidad\Especialidad2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Medico\Medico.wsdl" />
+    <None Include="Service References\Medico\Medico.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Medico\Medico1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Medico\Medico2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PacienteSvc\Paciente.wsdl" />
+    <None Include="Service References\PacienteSvc\Paciente.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PacienteSvc\Paciente1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PacienteSvc\Paciente2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrevisionSvc\Prevision.wsdl" />
+    <None Include="Service References\PrevisionSvc\Prevision.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrevisionSvc\Prevision1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrevisionSvc\Prevision2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Reserva\ConsoleApplication1.Reserva.ReservaEnt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Reserva\Reserva.wsdl" />
+    <None Include="Service References\Reserva\Reserva.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Reserva\Reserva1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Reserva\Reserva2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SecretariaSvc\ConsoleApplication1.SecretariaSvc.InsertarSecretariaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecretariaSvc\ConsoleApplication1.SecretariaSvc.ValidaDuplicidadSecretariaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecretariaSvc\ConsoleApplication1.SecretariaSvc.ValidarLoginSecretariaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SecretariaSvc\Secretaria.wsdl" />
+    <None Include="Service References\SecretariaSvc\Secretaria.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SucursalSvc\Sucursales.wsdl" />
+    <None Include="Service References\SucursalSvc\Sucursales.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SucursalSvc\Sucursales1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SucursalSvc\Sucursales2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AgendaDiaria\" />
+    <WCFMetadataStorage Include="Service References\Especialidad\" />
+    <WCFMetadataStorage Include="Service References\Medico\" />
+    <WCFMetadataStorage Include="Service References\PacienteSvc\" />
+    <WCFMetadataStorage Include="Service References\PrevisionSvc\" />
+    <WCFMetadataStorage Include="Service References\Reserva\" />
+    <WCFMetadataStorage Include="Service References\SecretariaSvc\" />
+    <WCFMetadataStorage Include="Service References\SucursalSvc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrevisionSvc\Prevision.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrevisionSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrevisionSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrevisionSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Medico\Medico.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Medico\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Medico\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Medico\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Especialidad\Especialidad.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Especialidad\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Especialidad\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Especialidad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgendaDiaria\AgendaDiariasvc.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgendaDiaria\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgendaDiaria\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AgendaDiaria\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SucursalSvc\Sucursales.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SucursalSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SucursalSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SucursalSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Reserva\Reserva.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Reserva\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Reserva\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Reserva\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PacienteSvc\Paciente.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PacienteSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PacienteSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PacienteSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecretariaSvc\Secretaria.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecretariaSvc\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecretariaSvc\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SecretariaSvc\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

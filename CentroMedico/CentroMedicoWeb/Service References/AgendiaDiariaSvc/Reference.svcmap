@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b16afb7-b8cf-4f9a-ae03-702e3f34daaa" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/AgendaDiariasvc.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AgendaDiariasvc.disco" MetadataType="Disco" ID="99a012a7-de54-42e6-96b0-78aa41f1bd0b" SourceId="1" SourceUrl="http://localhost:59231/AgendaDiariasvc.svc?disco" />
+    <MetadataFile FileName="AgendaDiariasvc.wsdl" MetadataType="Wsdl" ID="7e4a5ad5-5825-4501-9606-3f7eaeef6eac" SourceId="1" SourceUrl="http://localhost:59231/AgendaDiariasvc.svc?wsdl" />
+    <MetadataFile FileName="AgendaDiariasvc.xsd" MetadataType="Schema" ID="0b874a43-6990-48f8-91f5-8c6a1e8a6aaf" SourceId="1" SourceUrl="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd0" />
+    <MetadataFile FileName="AgendaDiariasvc1.xsd" MetadataType="Schema" ID="024cf474-a95f-4468-8d64-82175d364043" SourceId="1" SourceUrl="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd2" />
+    <MetadataFile FileName="AgendaDiariasvc2.xsd" MetadataType="Schema" ID="b47c2114-3231-4553-a0a6-34e95eb78f5c" SourceId="1" SourceUrl="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

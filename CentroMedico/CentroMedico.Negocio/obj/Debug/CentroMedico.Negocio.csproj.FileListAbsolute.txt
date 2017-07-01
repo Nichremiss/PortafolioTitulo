@@ -1,0 +1,10 @@
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\CentroMedico.Negocio.dll
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\CentroMedico.Negocio.pdb
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\CentroMedico.Datos.dll
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\CentroMedico.Datos.pdb
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\obj\Debug\CentroMedico.Negocio.csprojResolveAssemblyReference.cache
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\obj\Debug\CentroMedico.Negocio.dll
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\CentroMedico.Negocio\obj\Debug\CentroMedico.Negocio.pdb

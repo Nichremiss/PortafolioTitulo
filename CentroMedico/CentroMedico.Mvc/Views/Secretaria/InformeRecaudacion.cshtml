@@ -1,0 +1,276 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="~/Scripts/printThis.js"></script>
+<!-- <script src="~/Scripts/Js/Secretaria/InformeRecaudacion.js"></script>
+-->
+@{
+    ViewBag.Title = "InformeRecaudacion";
+}
+<br />
+<br />
+<div>
+    <div class="panel panel-info" data-collapsed="0" style="background-color: gainsboro">
+        <div class="panel-heading">
+            <div class="panel-title"><h2 h2 style="text-align:center;color:#428bca">Informe de Recaudación</h2></div>
+        </div>
+        <!-- panel body -->
+        <div class="panel-body">
+      <br />
+            <!--Mensajes Alerta-->
+            <div class="row col-md-12">
+                <div class="alert alert-danger" id="txtTextoOculto" style="height: 60px">
+                </div>
+            </div>
+            <br />
+            <!--fecha desde -->
+            <div class="col-sm-4">
+                Fecha desde
+                <input type="text" onkeypress="return justNumbers(event)" class="form-control datepicker" data-format="dd/mm/yyyy" id="txtFechaInicio"  data-end-date="1d" style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+            </div>
+            <!--fecha hasta-->
+            <div class="col-sm-4">
+                Fecha hasta
+                <input onkeypress="return justNumbers(event)" type="text" class="form-control datepicker" data-format="dd/mm/yyyy" id="txtFechaTermino" data-end-date="1d" style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+            </div>
+            <button class="btn btn-primary popover-primary" data-toggle="popover" data-trigger="hover" style="margin-left: 18px;margin-top:17px;" onclick="MostrarInformeGeneral()" data-placement="top" data-content="Muestra segun fecha seleccionada información de montos recaudados por médico" data-original-title="Información por médico">Consulta detalle</button>
+            <button class="btn btn-primary popover-primary" data-toggle="popover" data-trigger="hover" style="margin-left: 18px;margin-top:17px;" onclick="MostrarRecaudacionGeneral()"data-placement="top" data-content="Muestra segun fecha seleccionada informacion de recaudación general" data-original-title="Recaudación general">Consulta General</button>
+            <label style="color:crimson" for='field-2' class="control-label" id="txtTextoOculto"></label>
+        </div>
+        <br />
+        <div id="contenedorReporteGeneral"></div>
+
+        <!--Modal Reserva-->
+        <div class="modal fade custom-width" id="Modal_Rerporte">
+            <div class="modal-dialog" style="width: 100%;margin-left:-20%">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #c5e8f7;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <img id="imagenLogo" src="~/Imagenes/logo.png" alt="" width="120" height="35" hr /> 
+                        
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-title">Recaudación : </h4><br /><br />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="field-1" class="col-sm-12 control-label">Reporte Comisión</label>
+                            </div>
+                            <div id="contenido" class="col-md-12">
+                                <label for="field-1" id="txtMedico" class="col-sm-12 control-label">: Dato</label>
+                            </div>
+                            <div class="clear"></div>
+
+                            <div class="modal-footer" style="background-color: #c5e8f7;">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <button type="button" id="btnEnviar" class="btn btn-info" onclick="DescargarPDF()">Descargar PDF</button>
+                                <script>
+                                $(document).ready(function () {
+                                    $('#btnEnviar').click(function () {
+                                        $('#contenido').printThis();
+                                   });
+                                });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal Reserva-->
+        <!-- Modal Muestra Recaudacion General-->
+        <div class="modal fade" id="modal_inf_General">
+            <div class="modal-dialog" style="width: 60%;margin-left:-20%">
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: #c5e8f7;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <img id="imagenLogo" src="~/Imagenes/logo.png" alt="" width="120" height="35" hr /> 
+                       
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-title">Comisión General: </h4><br /><br />
+                        <div class="col-md-12">
+                            <label for="field-1" id="mensaje_recaudacion" class="col-sm-12 control-label">: Dato</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: #c5e8f7;">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Subir PDF-->
+        <div class="modal fade" id="modal_pdf">
+            <div class="modal-dialog" style="width: 100%;margin-left:-20%">
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: #c5e8f7;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <img id="imagenLogo" src="~/Imagenes/logo.png" alt="" width="120" height="35" hr /> 
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-title">Archivar comisión: </h4><br /><br />
+                      <h2 class="text-danger">@ViewBag.Error</h2>
+
+                      <h2 class="text-success">@ViewBag.Correcto</h2>
+                        <form method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" size="40">
+                            <br />
+                           
+                        </form> 
+                    </div>
+                    <div class="modal-footer" style="background-color: #c5e8f7;">
+                        <button type="submit" class="btn btn-blue btn-icon"> Adjuntar PDF <i class="entypo-upload"></i></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    document
+    $(document).ready(function () {
+        console.log("ready!");
+        jQuery("#imagenlogo").css("margin", "2%");
+        jQuery("#txtTextoOculto").hide();
+    });
+
+    function MostrarRecaudacionGeneral() {
+
+        var param = {
+            fecha_inicio: jQuery('#txtFechaInicio').val(),
+            fecha_fin: jQuery('#txtFechaTermino').val()
+        };
+        if (jQuery("#txtFechaInicio").val() == '' || jQuery("#txtFechaTermino").val() == '') {
+            jQuery("#txtTextoOculto").show();
+            jQuery('#txtTextoOculto').html('Debe ingresar Ambas fechas!');
+            return;
+        } else {
+
+            jQuery.ajax({
+                type: "POST",
+                url: './ComparaFechas',
+                data: JSON.stringify(param),
+                datatype: "JSON",
+                contentType: "application/json; charset=utf-8",
+                success: function (returndata) {
+
+                    if (returndata == "False") {
+                        jQuery("#txtTextoOculto").show();
+                        jQuery('#txtTextoOculto').html('Orden de fechas no corresponde!');
+                        $('#lblMensaje').text("");
+                    }  else {
+                        jQuery.ajax({
+                            url: 'MontoRecaudacionGral',
+                            type: "POST",
+                            data: JSON.stringify(param),
+                            datatype: "JSON",
+                            contentType: "application/json; charset=utf-8",
+                            beforeSend: function () {
+
+                            },
+                            success: function (returndata) {
+                                console.log(returndata)
+                                jQuery("#txtTextoOculto").hide();
+                                jQuery("#modal_inf_General").modal("show");
+                                jQuery("#mensaje_recaudacion").html("El monto total recaudado, según las fechas seleccionadas, desde el día " + jQuery('#txtFechaInicio').val() + "Hasta " + jQuery('#txtFechaTermino').val() + "es de : " + returndata.mensaje.recaudado);
+                                jQuery("#modal_inf_General").modal("show");
+                            }
+
+
+                        });
+                    }
+                }
+            });
+        }
+    }
+    function MostrarInformeGeneral() {
+
+        var param = {
+            fecha_inicio: jQuery('#txtFechaInicio').val(),
+            fecha_fin: jQuery('#txtFechaTermino').val()
+        };
+        if (jQuery("#txtFechaInicio").val() == '' || jQuery("#txtFechaTermino").val() == '') {
+            jQuery("#txtTextoOculto").show();
+            jQuery('#txtTextoOculto').html('Debe ingresar Ambas fechas!');
+            return;
+        } else {
+
+
+
+            jQuery.ajax({
+                type: "POST",
+                url: './ComparaFechas',
+                data: JSON.stringify(param),
+                datatype: "JSON",
+                contentType: "application/json; charset=utf-8",
+                success: function (returndata) {
+
+                    if (returndata == "False") {
+                        jQuery("#txtTextoOculto").show();
+                        jQuery('#txtTextoOculto').html('Orden de fechas no corresponde!');
+                        $('#lblMensaje').text("");
+                    } else {
+
+                        jQuery.ajax({
+                            url: 'InformeGeneral',
+                            type: "POST",
+                            data: JSON.stringify(param),
+                            datatype: "JSON",
+                            contentType: "application/json; charset=utf-8",
+                            beforeSend: function () {
+                                jQuery('#contenedorReporteGeneral').slideUp();
+                            },
+                            success: function (returndata) {
+                                console.log(returndata)
+                                jQuery("#txtTextoOculto").hide();
+                                jQuery('#contenedorReporteGeneral').html(returndata.tabla);
+                                jQuery("#TablaReporteGeneral").dataTable({
+                                    "aaSorting": [[3, "asc"]]
+                                });
+                                jQuery('#txtTextoOculto').html('');
+                                jQuery('#contenedorReporteGeneral').slideDown();
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+    
+</script>
+<script>
+    function AbrirModalPdf()
+    {
+        jQuery("#modal_pdf").modal("show");
+    }
+    function MostrarModal(num) {
+        jQuery("#Modal_Rerporte").modal("show");
+        param = {
+            "id_medico": num,
+            "fecha_inicio": jQuery('#txtFechaInicio').val(),
+            "fecha_fin": jQuery('#txtFechaTermino').val()
+        };
+
+
+        jQuery.ajax({
+            url: 'MuestraDatosModalComision',
+            type: "POST",
+            data: JSON.stringify(param),
+            datatype: "JSON",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+            },
+
+            success: function (returndata) {
+                console.log(returndata);
+                if (returndata) {
+                    jQuery("#txtMedico").html(returndata.mensajeFina);
+                } 
+
+            }
+        });
+
+    } 
+</script>

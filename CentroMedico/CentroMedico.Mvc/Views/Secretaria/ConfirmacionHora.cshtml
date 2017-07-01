@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmacionHora";
+}
+@if (Session.Count > 0)
+    {
+        if (int.Parse(Session["TipoUsuario"].ToString()) == 1 || int.Parse(Session["TipoUsuario"].ToString()) == 2)
+        {
+<h2 style="color:white">Su Hora ha sido confirmada con exito.</h2>
+<h3 style="color:white">Se ha enviado un correo de confirmación a:</h3>
+<h2 style="color:white" id="mail"></h2>
+<a href="~/Login/Bienvenida"><p style="color:white" >Volver a Menú</p></a>
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        jQuery.ajax({
+            type: "POST",
+            url: './MuestraMail',
+            datatype: "JSON",
+            contentType: "application/json; charset=utf-8",
+            success: function (returndata) {
+                jQuery("#mail").html(returndata.mail);
+
+            }
+        });
+    
+        });
+  
+
+      
+</script>
+}
+        else
+        {
+
+            Response.Redirect("~/Login/Login");
+
+        }
+
+
+    }
+    else
+    {
+        Response.Redirect("~/Login/Login");
+    }
+

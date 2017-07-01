@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="77fba36d-7a2c-428c-9afd-b2bc44f48cf3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59231/Reserva.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Reserva.wsdl" MetadataType="Wsdl" ID="da744694-b646-46f7-b61e-058c8fc497f7" SourceId="1" SourceUrl="http://localhost:59231/Reserva.svc?wsdl" />
+    <MetadataFile FileName="Reserva.disco" MetadataType="Disco" ID="7f9e0660-57a9-40d1-af97-b4e296ac618b" SourceId="1" SourceUrl="http://localhost:59231/Reserva.svc?disco" />
+    <MetadataFile FileName="Reserva.xsd" MetadataType="Schema" ID="6e128346-ce76-45b1-85ee-2221db8e7507" SourceId="1" SourceUrl="http://localhost:59231/Reserva.svc?xsd=xsd0" />
+    <MetadataFile FileName="Reserva1.xsd" MetadataType="Schema" ID="821fec30-f128-46a3-81eb-2f5db7ac60c7" SourceId="1" SourceUrl="http://localhost:59231/Reserva.svc?xsd=xsd2" />
+    <MetadataFile FileName="Reserva2.xsd" MetadataType="Schema" ID="d9642d06-5a31-4fb6-8c73-d29a4b355fbb" SourceId="1" SourceUrl="http://localhost:59231/Reserva.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

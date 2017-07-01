@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "PacientesEspera";
+}
+
+@if (Session.Count > 0 && int.Parse(Session["TipoUsuario"].ToString()) == 3)
+{
+    <div style="background-color: gainsboro" class="panel">
+        <h2 style="text-align:center;color:#428bca">Pacientes en espera</h2>
+        <div id="contenedorTablaEspera"> </div>
+    </div>
+
+
+
+    <script>
+        jQuery(document).ready(function ($) {
+            jQuery.ajax({
+                url: 'PecientesEnEspera',
+                type: "POST",
+                datatype: "JSON",
+                contentType: "application/json; charset=utf-8",
+                beforeSend: function () {
+                    jQuery('#contenedorTablaEspera').slideUp();
+                },
+                success: function (returndata) {
+                    console.log(returndata)
+                    jQuery('#contenedorTablaEspera').html(returndata.tabla);
+                    jQuery("#TablaPacientesEsperaxDoctor").dataTable({
+                        "aaSorting": [[3, "asc"]]
+                    });
+                    jQuery('#contenedorTablaEspera').slideDown();
+
+                }
+            })
+
+        });
+
+        function MarcarPacienteAtendido(num_id)
+        {
+            var param = {
+                "reserva_id":num_id
+            }
+
+            jQuery.ajax({
+                url: 'CambiarEstado',
+                type: "POST",
+                data: JSON.stringify(param),
+                datatype: "JSON",
+                contentType: "application/json; charset=utf-8",
+                beforeSend: function () {
+                },
+                success: function (returndata)
+                {
+                    console.log(returndata)
+                    if (returndata)
+                    {
+                        alert("Paciente atendido");
+                        setTimeout(function () {
+                            location.reload();
+                        }, 1000);
+
+                    }
+
+                }
+            });
+
+        }
+
+ 
+    </script>
+
+
+
+}
+else
+{
+
+    Response.Redirect("~/Index/Index");
+
+
+}
+
+
+

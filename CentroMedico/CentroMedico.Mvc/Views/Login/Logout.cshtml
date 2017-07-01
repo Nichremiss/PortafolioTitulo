@@ -1,0 +1,22 @@
+﻿
+
+@{
+    ViewBag.Title = "Logout";
+}
+
+@if (Session["Usuario"] != null)
+{
+
+    Session.Clear();
+    Response.Redirect("~/Index/Index");
+
+}
+else
+{
+
+    Response.Redirect("~/Index/Index");
+}
+
+
+
+

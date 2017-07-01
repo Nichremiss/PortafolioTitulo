@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ObtenerAgenda">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="ObtenerAgendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="ObtenerAgendaResult" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarAgenda">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="entidad" type="tns:AgendaEnt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AgendaEnt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="agenda_id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="agenda_fecha_inicio" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="agenda_fecha_termino" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="agenda_medico_id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertarAgendaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" name="InsertarAgendaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

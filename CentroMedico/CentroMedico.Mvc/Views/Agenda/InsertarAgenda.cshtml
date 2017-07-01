@@ -1,0 +1,334 @@
+﻿
+    <script src="~/Scripts/Js/Agenda/Agenda.js"></script>
+    <!--Combo de Medico-->
+    <script>
+    $(document).ready(function () {
+        $("#combo").jqxComboBox({});
+    });
+    </script>
+
+    <!--Combo de Medico-->
+    <script>
+    $(document).ready(function () {
+        $("#combo2").jqxComboBox({});
+    });
+    </script>
+
+
+
+<style>
+    body {
+        background-color: #3c3c3a;
+    }
+
+    .control-label {
+        color: azure;
+    }
+
+    #accordianContainer {
+        padding-bottom: 4em;
+    }
+
+        #accordianContainer h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+            #accordianContainer h3:not(:first-child) {
+                margin-top: 3em;
+            }
+
+            #accordianContainer h3.farming {
+                color: #ef4631;
+            }
+
+            #accordianContainer h3.processing {
+                color: #f88d00;
+            }
+
+            #accordianContainer h3.distribution {
+                color: #feb422;
+            }
+
+        #accordianContainer .accordion .accordion-navigation {
+            position: relative;
+        }
+
+            #accordianContainer .accordion .accordion-navigation a {
+                color: #fff;
+                text-transform: uppercase;
+                font-weight: bold;
+                border-bottom: white solid 1px;
+                border-bottom: rgba(255, 255, 255, 0.35) solid 1px;
+            }
+
+            #accordianContainer .accordion .accordion-navigation .content {
+                background-color: inherit;
+                color: #fff;
+            }
+
+            #accordianContainer .accordion .accordion-navigation:after {
+                color: #fff;
+                position: absolute;
+                font-family: FontAwesome;
+                top: 15px;
+                right: 15px;
+                content: "\f105";
+            }
+
+            #accordianContainer .accordion .accordion-navigation.active:after {
+                content: "\f107";
+            }
+
+
+
+    .accordion {
+        .accordion-navigation;
+
+    {
+        position: relative;
+        a;
+
+    {
+        background-color: inherit;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        // border-bottom: #fff solid 1px;
+        border-bottom: rgb(255,255,255) solid 1px;
+        border-bottom: rgba(255,255,255,0.35) solid 1px;
+    }
+
+    .content {
+        background-color: inherit;
+        color: #fff;
+    }
+
+    &:after {
+        color: #fff;
+        position: absolute;
+        font-family: FontAwesome;
+        top: 15px;
+        right: 15px;
+        content: "\f105";
+    }
+
+    &.active:after {
+        content: "\f107";
+    }
+
+
+   
+</style>
+
+
+<br /><br /><br /><br />
+
+
+    <h2 style="text-align:center;color: #fff">Ingreso agenda médicos </h2>
+      
+@*@if (Session.Count > 0 && int.Parse(Session["TipoUsuario"].ToString()) == 1)
+{*@
+ <!DOCTYPE html>
+    <html>
+        <head>
+        <meta charset="UTF-8">
+        <title>Foundation 5 - Accordion animate</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.css'>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+    </head>
+        <body>
+            <div id="accordianContainer" style="background-color: inherit">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <dl class="accordion" data-accordion style="background-color: inherit">
+                            <!--Acordion 1-->
+                            <dd id="acordion1" class="accordion-navigation" style="background-color: inherit">
+                                   <a style="background-color: inherit" href="#panel1a">Agenda general</a>
+                                <!--Panel-->
+                                <div id="panel1a" class="content">
+                                    <br /><br />
+                                    <!--form-->
+                                    <form role="form" class="form-horizontal form-groups-bordered">
+                                        <!--Mensajes Alerta-->
+                                            <div class="row col-md-12">
+                                                <div class="alert alert-danger" id="txtTextoOculto" style="height: 60px">
+                                                </div>
+                                            </div>
+                                            <div class="row col-md-12">
+                                                <div class="alert alert-danger" id="txtTextoOculto1" style="height: 60px">
+                                                </div>
+                                            </div>
+                                           
+                                      <!--combo-->
+                                        <div class="col-sm-4">
+                                                Profesional <br />
+                                                <select id="combo" onfocusout="ValidaDuplicidadAgenda()"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">               
+                                                    <option value="0">Seleccione</option>
+                                                    @foreach (var item in ViewBag.listaMedicos)
+                                                    {
+                                                        <option value="@item.medico_id">@item.medico_nombre @item.medico_apellido_paterno</option>
+                                                    }
+                                                </select>
+                                            </div>                                    
+                                      <!--fecha desde -->
+                                        <div class="col-sm-4">
+                                               Fecha desde
+                                                <input type="text" onkeypress="return justNumbers(event)" class="form-control datepicker" data-format="dd/mm/yyyy" data-start-date="-1d" data-end-date="+12w" id="txtFechaInicio"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                            </div>
+                                      <!--fecha hasta-->
+                                        <div class="col-sm-4">
+                                                Fecha hasta
+                                                <input onkeypress="return justNumbers(event)" type="text" class="form-control datepicker" data-format="dd/mm/yyyy" data-start-date="-1d" data-end-date="+12w" id="txtFechaTermino"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                            </div>
+                                      <!--Mensaje de ok-->
+                                        <div class="row" style="text-align:right">
+                                            <h3><label style="color:white" id="lblMensaje"></label></h3>
+                                        </div>
+                                        <br /><br />
+                                       <!--Boton  Guardar-->
+                                        <p class="text-center">
+                                            <a href="#panel2a" type="button" id="btnAgendaGeneral" class="btn btn-info" onclick="GuardaAgendaGeneral()">Ingresar</a>
+                                        </p>
+                                    </form>
+                                </div>
+                            </dd>
+                            <!--Acordion 2-->
+                            <dd id="acordion2" class="accordion-navigation" style="background-color: inherit">
+                                <a style="background-color: inherit" href="#panel2a">Agenda diaria</a>
+                                <!--Panel-->
+                                <div id="panel2a" class="content">
+                                    <!--Form-->
+                                    <form role="form" class="form-horizontal form-groups-bordered">
+                                        <!--Mensajes de alerta-->
+                                        <div class="row col-md-12">
+                                            <div class="alert alert-info" style="height: 60px" id="id_alerta">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12">
+                                            <div class="alert alert-danger" id="lblMensajef3" style="height: 60px">
+                                            </div>
+                                        </div>
+                                        <div class="row col-md-12">
+                                            <div class="alert alert-success" id="lblMensaje2" style="height: 60px">
+                                            </div>
+                                        </div>
+                                        <!--Combobox de Medico-->
+                                        <br />                                       
+                                            <div class="col-sm-4">
+                                                Profesional<br />
+                                                <select id="combo2" onfocusout="VerificarRango()"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                                    <option value="0">Seleccione</option>
+                                                    @foreach (var item in ViewBag.listaMedicosAgenda)
+                                                    {
+                                                        <option value="@item.medico_id">@item.medico_nombre @item.medico_apellido_paterno</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        <!--Fecha-->
+                                            <div class="col-sm-4">
+                                                Seleccione Día
+                                                <input type="text" onkeypress="return justNumbers(event)" data-format="dd/mm/yyyy" class="form-control datepicker" data-start-date="1d" data-end-date="+12w" id="txtFechaDia"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                            </div>                     
+                                        <!--Hora Inicio-->
+                                            <div class="col-sm-4">
+                                                    Hora Inicio
+                                                    <input type="text" class="form-control timepicker" id="txtHoraInicio" data-template="dropdown" data-show-seconds="false" data-default-time="08:00" data-show-meridian="false" data-minute-step="15"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;" />
+                                                </div>
+                                        <!--Hora Termino-->
+                                            <div class="col-sm-4">
+                                                    Hora Término
+                                                    <input type="text" class="form-control timepicker" data-template="dropdown" id="txtHoraTermino" data-show-seconds="false" data-default-time="18:00" data-show-meridian="false" data-minute-step="15"   style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;"/>
+                                                </div>
+                                        <!--Select minutos-->
+                                            <div class="col-sm-4">
+                                                Tiempo de atención
+                                                <select class="form-control" id="txtSelectDuracion"  style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                                    <option value="0">Seleccione</option>
+                                                    <option value="15">15 Minutos</option>
+                                                    <option value="20">20 Minutos</option>
+                                                    <option value="30">30 Minutos</option>
+                                                </select>
+                                            </div>
+                                       <!--Mensaje de ok-->
+                                        <br />
+                                        <!--Boton Guardar-->
+                                           <p class="text-center">
+                                            <button type="button" id="btnEnviar" class="btn btn-success" onclick="GuardaAgendaDiaria()">Guardar <i class="entypo-floppy"></i></button>
+                                        </p>
+                                    </form>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+           
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js'></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.accordion.js'></script>
+        </body>
+    </html>
+    
+    <script>
+    //reflow after page load
+    $(document).foundation('accordion', 'reflow');
+
+    //animate open/close
+    $(".accordion dd").on("click", "a:eq(0)", function (event) {
+        var dd_parent = $(this).parent();
+
+        if (dd_parent.hasClass('active')) {
+            $(".accordion dd div.content:visible").slideToggle("normal");
+        } else {
+            $(".accordion dd div.content:visible").slideToggle("normal");
+            $(this).parent().find(".content").slideToggle("normal");
+        }
+        //return false;
+    });
+
+    function VerificarRango() {
+
+        param = {
+            "id_medico": jQuery("#combo2").val(),
+        };
+        jQuery.ajax({
+            url: 'Trae_rangosAgendaGralXmedico',
+            type: "POST",
+            data: JSON.stringify(param),
+            datatype: "JSON",
+            contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+            },
+            success: function (returndata) {
+                console.log(returndata);
+                if (returndata) {
+                    jQuery("#id_alerta").show();
+                    jQuery("#id_alerta").html("Seleccione disponibilidad diaria entre las siguientes fechas : " + " desde " + returndata.reserva.agenda_fecha_inicio + " Hasta el día :" + returndata.reserva.agenda_fecha_termino);
+                } else {
+
+
+                }
+            }
+        });
+    }
+    </script>
+
+    <script>
+    document
+    $(document).ready(function () {
+        console.log("ready!");
+        jQuery("#imagenlogo").css("margin", "2%");
+        jQuery("#id_alerta").hide();
+        jQuery("#lblMensaje2").hide();
+        jQuery("#lblMensajef3").hide();
+        jQuery("#txtTextoOculto").hide();
+        jQuery("#txtTextoOculto1").hide();
+
+    });
+
+
+
+    </script>

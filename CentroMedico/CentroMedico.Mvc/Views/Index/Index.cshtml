@@ -1,0 +1,98 @@
+﻿@*<div class="jumbotron">
+        <h1>Centro Médico Galenos</h1>
+        <p class="lead">Conoce nuestro nuevo centro médico.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Contacto &raquo;</a></p>
+</div>*@
+
+@*<div class="row">
+    <div class="col-md-4">
+        <h2>Horas Médicas Online</h2>
+        <p>A través de nuestra Pagina Web puedes solicitar fácilmente Horas médicas.</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Reservar Horas", "ReservaHoras", "Secretaria")</a></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Sucursales</h2>
+        <p>Seis Sucursales en la región Metropolitana cada una con un gran equipo medico</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Leer mas &raquo;</a></p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Nuestra Historia</h2>
+        <p>Conoce nuestra historia, y conoce nuestros puntos de contactos.</p>
+        <p><a class="btn btn-default" @Html.ActionLink("Leer Mas", "NuestraHistoria", "Index")</a></p>
+    </div>
+</div>
+<br />
+
+<div id="imagen" style="text-align:center">
+    <img src="~/Imagenes/NiñaGaleno.jpg" alt="" />
+</div>*@
+
+
+<!DOCTYPE HTML>
+<!--
+    Aerial by HTML5 UP
+    html5up.net | 
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Aerial by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="~/Scripts/assets_Index/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body class="loading">
+    <div id="wrapper">
+        <div id="bg"></div>
+        <div id="overlay"></div>
+        <div id="main">
+            <!-- Header -->
+            <header id="header">
+                <h1 style="font-weight: 500">Centro Médico Galenos</h1>
+                <p>Mejor Atención &nbsp;&bull;&nbsp; Calidad &nbsp;&bull;&nbsp; Cercania</p>
+                <nav>
+                    <ul>
+                        
+                        <li><a href="~/Login/Login" class="icon fa-pencil">Solicitar Hora<span class="label">Facebook</span></a></li>
+                        <li><a href="~/Index/NuestraHistoria" class="icon fa-ambulance">Nosotros<span class="label">Nosotros</span></a></li>
+                        <li><a href="#" class="icon fa-envelope-o">Contactanos<span class="label">Email</span></a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Footer -->
+            <footer id="footer" style="background: #303641">
+                <span class="copyright">&copy;Centro Médico Galenos <a href="#">cmgalenos@medicina.cl</a>.</span>
+            </footer>
+
+        </div>
+    </div>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+    </script>
+</body>
+</html>
+
+
+
+<script>
+
+
+    jQuery(document).ready(function ($) {
+
+        jQuery("#imagenLogo").hide();
+    });
+
+
+</script>
+<br />
+<br />
+<br />

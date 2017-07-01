@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Session.Count>0)
+{
+    @*Secretaria*@
+    if (int.Parse(Session["TipoUsuario"].ToString())==1)
+    {
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @*@Html.AntiForgeryToken()*@
+    <ul class="nav navbar-nav navbar-left"> 
+        
+        <li><label style="color: cadetblue; margin-top: 9%;">Bienvenido(a) @Session["NombreUsuario"].ToString() ||</label></li> 
+ 
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Calendario<b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-black">
+                <li>
+                    <a href="~/Medico/RegistroMedico">Registro Médico</a>
+                </li>
+                <li>
+                    <a href="~/Agenda/InsertarAgenda">Ingresar agenda</a>
+                </li>
+
+                <li>
+                    <a href="~/Secretaria/MuestraHorasMedicasSecretaria">Calendario Médico</a>
+                </li>
+            </ul>
+        </li>
+        <li><a href="~/Secretaria/MostrarReservas">Pacientes Reserva/Espera</a>
+        <li>@Html.ActionLink("Informe Recaudación", "InformeRecaudacion", "Secretaria", routeValues: null, htmlAttributes: new { id = "loginLink" })</li> 
+        @*<li>@Html.ActionLink("Comisiones", "Comisiones", "Secretaria", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+        <li><a href="~/Login/Logout">Cerrar sesión</a></li>
+    </ul>
+        }
+        }@*fin if tipo usuario*@
+
+    @*Paciente*@
+if (int.Parse(Session["TipoUsuario"].ToString()) == 2)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        <ul class="nav navbar-nav @*navbar-right*@">
+            <li><label style="color: cadetblue; margin-top: 9%;">Bienvenido(a) @Session["NombreUsuario"].ToString() ||</label></li> 
+            <li>@Html.ActionLink("Reservar Horas", "ReservaHoras", "Secretaria", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+             <li>@Html.ActionLink("Anular Horas", "ModificarHoras", "Paciente", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>      
+            <li><a href="~/Login/Logout">Cerrar sesión</a></li>
+        </ul>
+
+    }
+    @*@Html.AntiForgeryToken()*@
+}
+
+    @*Medico*@
+if (int.Parse(Session["TipoUsuario"].ToString())==3)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+
+        <ul class="nav navbar-nav @*navbar-right*@">
+            <li><label style="color: cadetblue; margin-top: 9%;">Bienvenido(a) @Session["NombreUsuario"].ToString() ||</label></li> 
+            <li>@Html.ActionLink("Pacientes en espera", "PacientesEspera", "Medico", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            <li><a href="~/Login/Logout">Cerrar sesión</a></li>
+        </ul>
+        }
+    }
+}@*fin if distinto de null*@
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Intranet", "RegistroSecretaria", "Secretaria", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Iniciar sesión","Login", "Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,165 @@
+﻿@section scripts {
+
+    <script src="~/Scripts/Js/Paciente/Paciente.js"></script>
+    <script src="~/Scripts/ValidarRut.js"></script>
+
+
+    <!--mensajes de ok y no ok-->
+    <script src="~/Scripts/assets/js/toastr.js"></script>
+    <script src="~/Scripts/assets/js/neon-chat.js"></script>
+
+    <!--funcion para el combo de prevision-->
+    @*<script>
+                $(document).ready(function () {
+                    $("#combo3").jqxComboBox({});
+                });
+    </script>*@
+
+    <script>
+                $(document).ready(function () {
+
+                    //var datos = @Html.Raw(ViewBag.Lista);
+
+                    $("#txtRutPaciente").rut();
+
+
+                });
+    </script>
+<script>
+    document
+    $(document).ready(function () {
+        console.log("ready!");
+        jQuery("#imagenlogo").css("margin", "2%");
+        jQuery("#txtTextoOculto").hide();
+        jQuery("#txtTextoOculto2").hide();
+    });
+</script>
+}
+<!--Inicio de formulario-->
+
+    <div class="row">
+        <div class="col-md-3" style="align-content:center"></div>
+        <div class="col-md-6">
+            <div class="panel panel-primary" data-collapsed="0">
+                <div class="panel-body" style="background:url(https://k60.kn3.net/taringa/4/0/E/A/7/5/Obed1990/70D.jpg);border-radius: 8px/7px; ">
+                    <form role="form" class="form-horizontal form-groups-bordered">
+                        <div class="panel-body">
+                            <h2 style="text-align:center;color:white">Registro Paciente</h2>
+                            <!--Mensaje de paciente registrado-->
+                            <div class="row col-md-12">
+                                <div class="alert alert-danger" id="txtTextoOculto" style="height: 60px">
+                                </div>
+                            </div>
+                            <!--Rut-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Rut</label>
+                                    <input type="text" onfocusout="return ValidarDuplicidadPaciente()" class="form-control" id="txtRutPaciente" placeholder="Con puntos y con guión">
+                                </div>
+
+                            <!--Nombre-->                             
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Nombre</label>
+                                    <input type="text" class="form-control" id="txtNombreP" placeholder="Máximo 15 caracteres" onkeypress="return soloLetras(event)">
+                                </div> 
+                            <div class="clear"></div>
+                            <br />                        
+                            <!--Apellido Paterno-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Apellido Paterno</label>
+                                    <input type="text" onkeypress="return soloLetras(event)" class="form-control" id="txtPaternoP" placeholder="Máximo 15 caracteres">
+                                </div>
+                            <!--Apellido Materno-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Apellido Materno</label>
+                                    <input type="text" onkeypress="return soloLetras(event)" class="form-control" id="txtMaternoP" placeholder="Máximo 15 caracteres">
+                                </div>
+                            <div class="clear"></div>
+                            <br /> 
+                            <!--fecha-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Fecha Nacimiento</label>
+                                    <input type="text" onkeypress="return justNumbers(event)" class="form-control datepicker" placeholder="Ingrese una fecha" data-end-date="-1d" id="txtFechaNacP" @*data-disabled-days="1,3"*@>
+                                </div>
+                                
+                            <!--telefono-->              
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Telefono/Celular</label>
+                                    <input type="number" class="form-control" id="txtTelefonoP" placeholder="Maximo 9 dígitos">
+                                </div>
+                            <div class="clear"></div>
+                            <br /> 
+                            <!--Email-->     
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="col-sm-3 control-label">Email</label>
+                                    <input type="email" name="email" data-validate="email" class="form-control" id="txtEmailP" placeholder="Maximo 20 caracteres" onblur="return ValidarEmail(vEmail)">
+                                </div>
+                           
+                            <!--Direccion-->   
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Direccion</label>
+                                    <input type="text" class="form-control" id="txtDireccionP" placeholder="Calle + Numeración">
+                                </div>
+                            <div class="clear"></div>
+                            <br /> 
+                            
+                            <!--Combobox de prevision-->
+                          
+                                
+                                <div class="col-sm-6">
+                                    <label class="control-label">Prevision</label>
+                                    <select id="combo3" style="display: block; width: 100%; height: 31px;padding: 6px 12px;font-size: 12px;line-height: 1.42857143;color: #555555;background-color: #ffffff;background-image: none;border: 1px solid #ebebeb;border-radius: 3px;">
+                                        <option value="">Seleccione</option>
+                                        <option value="1">Fonasa</option>
+                                        <option value="2">Cruz Blanca</option>
+                                        <option value="3">Vida Tres</option>
+                                        <option value="4">Mas Vida</option>
+                                        <option value="5">Consalud</option>
+                                        <option value="6">Banmedica</option>
+                                        <option value="7">Colmena</option>
+                                    </select>
+                                </div>
+                           
+                            <div class="clear"></div>
+                            <br /> 
+                            <!--Contraseña1-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="txtClaveP" placeholder="Debe tener entre 4 y 9 caracteres">
+                                </div>
+                                <label id="lblMensajeContraseña"></label>
+                           
+                            <!--Contraseña2-->
+                                <div class="col-sm-6">
+                                    <label for="field-1" class="control-label">Reingrese Contraseña</label>
+                                    <input type="password" class="form-control" id="txtClaveP2" placeholder="Debe ser igual a la anterior">
+                                </div>
+                                <label id="lblMensajeContraseñaDos"></label>
+                           
+                            <!--Mensaje de ok-->
+                            <div class="row col-md-12">
+                                <div class="alert alert-success" id="txtTextoOculto2" style="height: 60px">
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <br /> 
+                            <!--Boton de guardar-->
+                            <div class="col-md-11">
+                                <div class="row" style="text-align:center">
+                                    <button type="button" id="btnEnviar" class="btn btn-success" onclick="RegistraPaciente()">Guardar <i class="entypo-floppy"></i></button>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <!--Link para ir al login-->
+                            <div id='content'>
+                                <div>
+                                    <h4><a href="~/Login/Login">Volver al Login</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

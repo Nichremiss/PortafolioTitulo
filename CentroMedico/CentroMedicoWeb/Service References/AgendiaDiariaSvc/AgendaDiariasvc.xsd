@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:59231/AgendaDiariasvc.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" />
+  <xs:element name="InsertarAgendaDiaria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" minOccurs="0" name="entidad" nillable="true" type="q1:AgendaDiariaEnt" />
+        <xs:element minOccurs="0" name="hora_inicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hora_termino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="duracion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertarAgendaDiariaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertarAgendaDiariaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarAgendaDiaria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" minOccurs="0" name="entidad" nillable="true" type="q2:AgendaDiariaEnt" />
+        <xs:element minOccurs="0" name="hora_inicio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hora_termino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="duracion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarAgendaDiariaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarAgendaDiariaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCalendario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" minOccurs="0" name="entidad" nillable="true" type="q3:AgendaDiariaEnt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerCalendarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerCalendarioResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

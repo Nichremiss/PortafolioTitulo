@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Medico" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59231/Medico.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59231/Medico.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59231/Medico.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CentroMedico.Datos" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMedico_ValidarLoginMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarLoginMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ValidarLoginMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarLoginMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_InsertarMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_InsertarMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ObtenerMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ObtenerMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ValidaDuplicidadMedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaDuplicidadMedico" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ValidaDuplicidadMedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaDuplicidadMedicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ObtenerMedicosAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMedicosAgenda" />
+  </wsdl:message>
+  <wsdl:message name="IMedico_ObtenerMedicosAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerMedicosAgendaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMedico">
+    <wsdl:operation name="ValidarLoginMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedico/ValidarLoginMedico" message="tns:IMedico_ValidarLoginMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedico/ValidarLoginMedicoResponse" message="tns:IMedico_ValidarLoginMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedico/InsertarMedico" message="tns:IMedico_InsertarMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedico/InsertarMedicoResponse" message="tns:IMedico_InsertarMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedico/ObtenerMedico" message="tns:IMedico_ObtenerMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedico/ObtenerMedicoResponse" message="tns:IMedico_ObtenerMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaDuplicidadMedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedico/ValidaDuplicidadMedico" message="tns:IMedico_ValidaDuplicidadMedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedico/ValidaDuplicidadMedicoResponse" message="tns:IMedico_ValidaDuplicidadMedico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedicosAgenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMedico/ObtenerMedicosAgenda" message="tns:IMedico_ObtenerMedicosAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMedico/ObtenerMedicosAgendaResponse" message="tns:IMedico_ObtenerMedicosAgenda_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMedico" type="tns:IMedico">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarLoginMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedico/ValidarLoginMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedico/InsertarMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedico/ObtenerMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaDuplicidadMedico">
+      <soap:operation soapAction="http://tempuri.org/IMedico/ValidaDuplicidadMedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerMedicosAgenda">
+      <soap:operation soapAction="http://tempuri.org/IMedico/ObtenerMedicosAgenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Medico">
+    <wsdl:port name="BasicHttpBinding_IMedico" binding="tns:BasicHttpBinding_IMedico">
+      <soap:address location="http://localhost:59231/Medico.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

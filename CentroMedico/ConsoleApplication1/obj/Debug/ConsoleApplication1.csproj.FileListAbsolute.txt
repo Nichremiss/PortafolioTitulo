@@ -1,0 +1,5 @@
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Proyecto-PortafolioActual25-05-2017\proyectoportafolio\CentroMedico\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

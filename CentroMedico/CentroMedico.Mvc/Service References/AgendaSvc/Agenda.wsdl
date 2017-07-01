@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Agenda" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59231/Agenda.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAgenda_ObtenerAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAgenda" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_ObtenerAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerAgendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_InsertarAgenda_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAgenda" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_InsertarAgenda_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertarAgendaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_ValidaDuplicidadAgendaGen_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaDuplicidadAgendaGen" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_ValidaDuplicidadAgendaGen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidaDuplicidadAgendaGenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_Trae_rangosAgendaGralXmedico_InputMessage">
+    <wsdl:part name="parameters" element="tns:Trae_rangosAgendaGralXmedico" />
+  </wsdl:message>
+  <wsdl:message name="IAgenda_Trae_rangosAgendaGralXmedico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Trae_rangosAgendaGralXmedicoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAgenda">
+    <wsdl:operation name="ObtenerAgenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgenda/ObtenerAgenda" message="tns:IAgenda_ObtenerAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgenda/ObtenerAgendaResponse" message="tns:IAgenda_ObtenerAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarAgenda">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgenda/InsertarAgenda" message="tns:IAgenda_InsertarAgenda_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgenda/InsertarAgendaResponse" message="tns:IAgenda_InsertarAgenda_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaDuplicidadAgendaGen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgenda/ValidaDuplicidadAgendaGen" message="tns:IAgenda_ValidaDuplicidadAgendaGen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgenda/ValidaDuplicidadAgendaGenResponse" message="tns:IAgenda_ValidaDuplicidadAgendaGen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Trae_rangosAgendaGralXmedico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAgenda/Trae_rangosAgendaGralXmedico" message="tns:IAgenda_Trae_rangosAgendaGralXmedico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAgenda/Trae_rangosAgendaGralXmedicoResponse" message="tns:IAgenda_Trae_rangosAgendaGralXmedico_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAgenda" type="tns:IAgenda">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerAgenda">
+      <soap:operation soapAction="http://tempuri.org/IAgenda/ObtenerAgenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarAgenda">
+      <soap:operation soapAction="http://tempuri.org/IAgenda/InsertarAgenda" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaDuplicidadAgendaGen">
+      <soap:operation soapAction="http://tempuri.org/IAgenda/ValidaDuplicidadAgendaGen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Trae_rangosAgendaGralXmedico">
+      <soap:operation soapAction="http://tempuri.org/IAgenda/Trae_rangosAgendaGralXmedico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Agenda">
+    <wsdl:port name="BasicHttpBinding_IAgenda" binding="tns:BasicHttpBinding_IAgenda">
+      <soap:address location="http://localhost:59231/Agenda.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
